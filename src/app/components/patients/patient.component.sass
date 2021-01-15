@@ -1,0 +1,77 @@
+* 
+  box-sizing: border-box
+
+.tile 
+  min-height: 200px
+  display: flex
+  align-items: center
+  justify-content: center
+
+.leftRs 
+  position: absolute
+  margin: auto
+  top: 30px
+  bottom: 0
+  width: 35px
+  height: 35px
+  box-shadow: 1px 2px 10px -1px rgba(0, 0, 0, .3)
+  left: 0
+ 
+.rightRs 
+  position: absolute
+  margin: auto
+  top: 30px
+  bottom: 0
+  width: 35px
+  height: 35px
+  box-shadow: 1px 2px 10px -1px rgba(0, 0, 0, .3)
+  right: 0
+
+.myPoint 
+  list-style-type: none
+  text-align: center
+  padding: 12px
+  margin: 0
+  white-space: nowrap
+  overflow: auto
+  box-sizing: border-box
+
+.myPoint li 
+  display: inline-block
+  border: 1px solid rgba(0, 0, 0, 0.55)
+  padding: 4px
+  margin: 0 3px
+
+.myPoint li.active 
+  background: #3f51b5
+
+.navMenu 
+  display: flex
+  list-style-type: none
+  margin: 0
+  padding: 0
+  li 
+    display: flex
+    a 
+      padding: 10px
+      text-decoration: none
+      color: black
+      &.active 
+        background: goldenrod
+      
+      background: #ccc
+      border-radius: 6px
+    
+    margin: 3px
+
+.flex-container 
+  display: flex
+  flex-direction: row
+
+.flex-col-50 
+  margin: 0px 5px 0px
+  flex: 1
+
+.flex-col-100 
+  margin: 5px
+  flex: 1

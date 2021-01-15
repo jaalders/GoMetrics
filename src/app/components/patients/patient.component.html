@@ -1,0 +1,87 @@
+<mat-card style="width: 98%; margin: 0 auto; margin-top: 20px; margin-bottom: 20px;">
+  <div class="flex-col-100">
+      <mat-card-title>Patient Metrics</mat-card-title>
+      <mat-divider [inset]="true" style="margin-bottom: 20px; margin-top: 20px;"></mat-divider>
+    <ngu-carousel style="margin: 0 auto;" #myCarousel [inputs]="carouselConfig" [dataSource]="[first, second]">
+      <div *nguCarouselDef="let item;" class="item">
+          <div class="tile">
+              <ng-container *ngTemplateOutlet="item"></ng-container>
+          </div>
+      </div>
+  
+      <ng-template #first>
+        <mat-card style="width: 95%;" class="mat-elevation-z0">
+          <mat-card-content>
+            <div class="flex-container">
+              <div class="flex-col-50">
+                <mat-card-subtitle><b>Order breakdown by gender</b></mat-card-subtitle>
+                <div style="display: block; width: 80%; margin: 0 auto;">  
+                  <canvas baseChart
+                    [data]="orderDemographicsByGender[0].ChartData"
+                    [labels]="orderDemographicsByGender[0].ChartLabels"
+                    [legend]="orderDemographicsByGender[0].Legend"
+                    [chartType]="orderDemographicsByGender[0].ChartType"
+                    [options]="orderDemographicsByGender[0].ChartOptions">
+                  </canvas>
+                </div>
+              </div>
+              <div class="flex-col-50">
+                <mat-card-subtitle><b>Order breakdown by age</b></mat-card-subtitle>
+                <div style="display: block; width: 80%; margin: 0 auto;">
+                  <canvas baseChart 
+                    [datasets]="orderDemographicsByAge[0].ChartDataSets"
+                    [labels]="orderDemographicsByAge[0].ChartLabels"
+                    [options]="orderDemographicsByAge[0].ChartOptions"
+                    [legend]="orderDemographicsByAge[0].Legend"
+                    [chartType]="orderDemographicsByAge[0].ChartType">
+                  </canvas>
+                </div>
+              </div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </ng-template>
+  
+      <ng-template #second>
+        <mat-card style="width: 95%;" class="mat-elevation-z0">
+          <mat-card-content>
+            <div class="flex-container">
+              <div class="flex-col-50">
+                <mat-card-subtitle><b>Order breakdown by insurance provider</b></mat-card-subtitle>
+                <div style="display: block; width: 80%; margin: 0 auto;">  
+                  <canvas baseChart
+                    [data]="orderBreakdownByProvider[0].ChartData"
+                    [labels]="orderBreakdownByProvider[0].ChartLabels"
+                    [legend]="orderBreakdownByProvider[0].Legend"
+                    [chartType]="orderBreakdownByProvider[0].ChartType"
+                    [options]="orderBreakdownByProvider[0].ChartOptions">
+                  </canvas>
+                </div>
+              </div>
+              <div class="flex-col-50">
+                <mat-card-subtitle><b>Days taken to process insurance claim</b></mat-card-subtitle>
+                <div style="display: block; width: 80%; margin: 0 auto;">
+                  <canvas baseChart
+                    [data]="orderProviderProcessingTime[0].ChartData"
+                    [labels]="orderProviderProcessingTime[0].ChartLabels"
+                    [legend]="orderProviderProcessingTime[0].Legend"
+                    [chartType]="orderProviderProcessingTime[0].ChartType"
+                    [options]="orderProviderProcessingTime[0].ChartOptions">
+                  </canvas>
+                </div>
+              </div>
+            </div>
+            <mat-divider [inset]="true" style="margin-bottom: 20px; margin-top: 20px;"></mat-divider>
+          </mat-card-content>
+        </mat-card>
+      </ng-template>
+  
+      <ul class="myPoint" NguCarouselPoint>
+        <li *ngFor="let j of myCarousel.pointNumbers; let k = index" [class.active]="k == myCarousel.activePoint" (click)="myCarousel.moveTo(j)"></li>
+        <button NguCarouselNext class="rightRs">></button>
+        <button NguCarouselPrev class="leftRs"><</button>
+      </ul>
+    </ngu-carousel>
+  </div>
+</mat-card>
+

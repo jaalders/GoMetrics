@@ -1,0 +1,13 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <h1>GoMetrics</h1>
+      <!-- this will align the buttons to the right -->
+      <span class="flex-spacer"></span>
+      <span class="menu-spacer" *ngIf="authService.isLoggedIn();">
+        <a mat-button [routerLink]="['/patients']">Patients</a>
+        <a mat-button [routerLink]="['/vendors']">Vendors</a>
+        <a mat-button [routerLink]="['/providers']">Providers</a>
+        <a mat-button (click)="authService.logout();">Logout</a>
+      </span>
+    </mat-toolbar-row>
+  </mat-toolbar>
