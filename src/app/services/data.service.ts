@@ -3,7 +3,7 @@ import { Injectable } from "@angular/core";
 @Injectable({
     providedIn: 'root'
 })
-
+// Data is too generic
 export class DataService {
 
     public fetchURL = "app/api/charts/chartSettings.json";

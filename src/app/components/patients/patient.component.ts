@@ -10,7 +10,7 @@ import { DataService } from '../../services/data.service';
 })
 
 export class PatientComponent implements AfterViewInit {
-
+  // data is too generic
   data = this.dataService;
 
   public orderDemographicsByAge: IChart[] = [{
@@ -35,6 +35,7 @@ export class PatientComponent implements AfterViewInit {
     Legend: true
   }];
 
+  // more of a question, could this be moved to a service class as well ?
   public orderDemographicsByGender: IChart[] = [{
     ChartLabels: this.dataService.getPatientDemographics()[0].labels,
     ChartData: this.dataService.getPatientDemographics()[0].data,
@@ -52,7 +53,7 @@ export class PatientComponent implements AfterViewInit {
         mode: 'single',
         callbacks: {
           label: function(tooltipItem, ChartData) {
-            if (ChartData !== undefined) {
+            if (ChartData !== undefined) { // if (ChartData) // not sure `!== undefined` is needed
               let totalOfAllElements: number = 0;
               let percentage: number = 0;
               // the + in front of the ChartData value converts the value to a number to be used below.

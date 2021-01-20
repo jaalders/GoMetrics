@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class FooterComponent implements OnInit {
 
   constructor() { }
-
+  // I dont think this is used
   currentDate: String = "this is my date";
 
   today: number = Date.now();
