@@ -34,7 +34,7 @@ export class VendorComponent implements OnInit {
   
   // this is my data constructor that can be used for my HTTP requests in the future. Just call functions to get data for input.
   data = this.dataService;
-
+  // same comment, this feels more like config and I think would be best if moved outside this UI component class
   public initiatedOrdersBarChart: IChart[] = [{
     ChartLabels: this.data.getBarChartData()[0].months,
     ChartDataSets: this.data.getBarChartData()[0].data,

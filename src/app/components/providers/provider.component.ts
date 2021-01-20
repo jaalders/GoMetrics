@@ -36,7 +36,7 @@ export class ProviderComponent implements OnInit {
   displayedColumns: string[] = ['position', 'name', 'orderMonthlyChange', 'orderTotalThisYear'];
   dataSource = ELEMENT_DATA;
 
-
+  // could be moved to a service class as well or a config service class 
   public phyisicanOrdersPerMonth: IChart[] = [{
     ChartLabels: this.data.getPhysicianOrderList()[0].months,
     ChartDataSets: this.data.getPhysicianOrderList()[0].data,
@@ -49,6 +49,7 @@ export class ProviderComponent implements OnInit {
       legend: {
         position: "left"
       },
+      // place holder ?
       onClick: () => {
         console.log("This is working!");
       },

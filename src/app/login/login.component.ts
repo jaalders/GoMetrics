@@ -32,6 +32,7 @@ export class LoginComponent implements OnInit {
       password: password
     };
 
+    // this kind of logic I think make sense to be part of the login service
     this.http.post('http://localhost:3000/login', reqObject, {
       headers: headers
     }).subscribe(
@@ -41,10 +42,14 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('token', response.refreshToken);
       },
       (error) => {
+        // this is ok in a demo app, but not production quality, 
+        // errors should be logged through a library/framework (Ex: sentry)
+        // In additoin there exception/error should handled and/or bubbled vs silent-fail
         console.log(error);
       },
       () => {
         console.log("login worked!");
+        // if this was part of the service, I am not sure it would make sense to route directly from the service
         this.router.navigate(["home"]);
       }
     )
