@@ -53,7 +53,7 @@ export class PatientComponent implements AfterViewInit {
         mode: 'single',
         callbacks: {
           label: function(tooltipItem, ChartData) {
-            if (ChartData !== undefined) { // if (ChartData) // not sure `!== undefined` is needed
+            if (ChartData) {
               let totalOfAllElements: number = 0;
               let percentage: number = 0;
               // the + in front of the ChartData value converts the value to a number to be used below.

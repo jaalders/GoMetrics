@@ -31,6 +31,7 @@ import { AuthInterceptor } from './interceptors/auth-interceptor';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouteGuard } from './services/routing.guard';
 import 'hammerjs';
+import { LoginService } from './login/services/login.service';
 
 const appRoutes: Routes = [
   { path: "login", component: LoginComponent },
@@ -78,6 +79,7 @@ const appRoutes: Routes = [
     NguCarouselModule
   ],
   providers: [
+    LoginService,
     AuthService,
     {
       provide: HTTP_INTERCEPTORS,

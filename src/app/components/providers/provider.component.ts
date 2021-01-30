@@ -17,7 +17,6 @@ const ELEMENT_DATA: PhysicianNames[] = [
   { position: 5, name: 'Tayyab Hodge',  orderMonthlyChange: '-23%', orderTotalThisYear: "98" },
 ];
 
-
 @Component({
   selector: 'app-provider',
   templateUrl: './provider.component.html',
@@ -34,6 +33,7 @@ export class ProviderComponent implements OnInit {
   data = this.dataService;
 
   displayedColumns: string[] = ['position', 'name', 'orderMonthlyChange', 'orderTotalThisYear'];
+  // datasource for this data is above as an array.
   dataSource = ELEMENT_DATA;
 
   // could be moved to a service class as well or a config service class 
